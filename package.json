@@ -1,0 +1,52 @@
+{
+	"name": "react-hookable-component",
+	"version": "0.1.0",
+	"description": "Use hooks in React class components",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"format": "prettier --write \"src/**/*.{ts,tsx}\"",
+		"lint": "tslint -p tsconfig.json",
+		"test": "jest --config jestconfig.json",
+		"prepare": "yarn build",
+		"prepublishOnly": "yarn test && yarn lint",
+		"preversion": "yarn lint",
+		"version": "yarn format && git add -A src",
+		"postversion": "git push && git push --tags"
+	},
+	"author": "Wisha Wanichwecharungruang <wisha.wa@yandex.com>",
+	"license": "MPL-2.0",
+	"keywords": [
+		"React",
+		"Hook",
+		"Class",
+		"Lifecycle"
+	],
+	"repository": "github:wishawa/react-class-component-hooks",
+	"devDependencies": {
+		"@babel/preset-env": "^7.16.5",
+		"@babel/preset-react": "^7.16.5",
+		"@testing-library/jest-dom": "^5.16.2",
+		"@testing-library/react": "^12.1.2",
+		"@types/jest": "^27.0.3",
+		"@types/react": "^17.0.39",
+		"@types/react-dom": "^17.0.11",
+		"@types/react-test-renderer": "^17.0.1",
+		"babel-jest": "^27.4.5",
+		"jest": "^27.4.5",
+		"prettier": "^2.5.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-test-renderer": "^17.0.2",
+		"ts-jest": "^27.1.2",
+		"tslint": "^6.1.3",
+		"typescript": "^4.5.4"
+	},
+	"files": [
+		"lib/**/*"
+	],
+	"peerDependencies": {
+		"react": "^17.0.0"
+	}
+}
