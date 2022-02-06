@@ -23,7 +23,7 @@
 		"Class",
 		"Lifecycle"
 	],
-	"repository": "github:wishawa/react-class-component-hooks",
+	"repository": "github:wishawa/react-hookable-component",
 	"devDependencies": {
 		"@babel/preset-env": "^7.16.5",
 		"@babel/preset-react": "^7.16.5",
