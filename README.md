@@ -55,7 +55,7 @@ class MyComponent extends HookableComponent<Props, State> {
 HookableComponent turns your `render()` method into a functional component so hooks work.
 The `render()` method still have access to the class instance's `this`.
 
-Want to know more? The code is really short, just go take a look.
+Want to know more? [The code](https://github.com/wishawa/react-hookable-component/blob/main/src/index.ts) is really short, just go take a look.
 
 ## Live Demo
 [On CodeSandbox](https://codesandbox.io/s/react-hookable-component-cmfwl)
@@ -64,7 +64,6 @@ Want to know more? The code is really short, just go take a look.
 ### Use contexts in class components
 This example shows usage of two React contexts.
 ```tsx
-import { HookableComponent } from 'react-hookable-component';
 class MyComponent extends HookableComponent<Props, State> {
 	myContextValue: null | TMyContext = null;
 	render() {
@@ -91,10 +90,29 @@ class MyComponent extends HookablePureComponent<Props, State> {
 		return result;
 	}
 	render() {
-		const expensiveAnswer = useMemo(this.expensiveComputation, [this.props.computationInput])
+		const expensiveAnswer = useMemo(this.expensiveComputation, [this.props.computationInput]);
 		return <span>The answer is {expensiveAnswer}</span>;
 	}
 }
 ```
-## Want to create hooks using classes instead?
+## FAQ
+
+#### eslint complains about using hooks in class components.
+Do `// eslint-disable-next-line react-hooks/rules-of-hooks`.
+
+#### I'm not extending `Component` or `PureComponent`, but rather my own class.
+In that case you can use `makeHookable` instead.
+```tsx
+import {makeHookable} from 'react-hookable-component';
+
+class MyComponent extends MyCustomComponentClass {
+	constructor(props: Props) {
+		super(props);
+		// ...
+		makeHookable(this); // 👈 this right here at the end of constructor!
+	}
+}
+```
+
+#### I don't want to use hooks in class components. I would rather make hooks out of classes!
 Use [class-based-react-hooks](https://github.com/wishawa/class-based-react-hooks).
