@@ -40,7 +40,7 @@ export class HookableComponent<P = {}, S = {}, SS = any> extends Component<
 > {
 	constructor(props: P) {
 		super(props);
-		makeHookable(this);
+		makeHookable<P, S, SS>(this);
 	}
 }
 export class HookablePureComponent<
@@ -50,6 +50,6 @@ export class HookablePureComponent<
 > extends PureComponent<P, S, SS> {
 	constructor(props: P) {
 		super(props);
-		makeHookable(this);
+		makeHookable<P, S, SS>(this);
 	}
 }
