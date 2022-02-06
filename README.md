@@ -103,7 +103,7 @@ Do `// eslint-disable-next-line react-hooks/rules-of-hooks`.
 #### I'm not extending `Component` or `PureComponent`, but rather my own class.
 In that case you can use `makeHookable` instead.
 ```tsx
-import {makeHookable} from 'react-hookable-component';
+import { makeHookable } from 'react-hookable-component';
 
 class MyComponent extends MyCustomComponentClass {
 	constructor(props: Props) {
